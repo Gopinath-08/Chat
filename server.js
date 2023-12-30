@@ -4,7 +4,14 @@ const socketIO = require('socket.io');
 
 const app = express();
 const server = http.createServer(app);
-const io = socketIO(server);
+
+// Initialize Socket.IO with the server and set origins
+const io = socketIO(server, {
+  cors: {
+    origin: "https://chat-gsm9.onrender.com",
+    methods: ["GET", "POST"]
+  }
+});
 
 app.use(express.static('public'));
 
