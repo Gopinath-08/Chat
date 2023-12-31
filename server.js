@@ -5,10 +5,16 @@ const socketIO = require('socket.io');
 const app = express();
 const server = http.createServer(app);
 
+// Replace "https://chat-gsm9.onrender.com" with your actual Socket.IO link
+const socketIOLink = "https://chat-gsm9.onrender.com";
+
+// Replace "https://chat-gopinath-08.vercel.app/" with your actual server link
+const yourServerLink = "https://chat-gopinath-08.vercel.app/";
+
 // Initialize Socket.IO with the server and set origins
 const io = socketIO(server, {
   cors: {
-    origin: "https://chat-gsm9.onrender.com",
+    origin: socketIOLink,
     methods: ["GET", "POST"]
   }
 });
