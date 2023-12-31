@@ -16,21 +16,54 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
+const PORT = process.env.PORT || 8800;
+
+server.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
+// Helper function to generate a random room number
+function generateRoomNumber() {
+  return Math.floor(1000 + Math.random() * 9000).toString();
+}
+
+const socketToRoom = {};
+
 io.on("connection", (socket) => {
   console.log("A user connected");
 
-  // Handle chat messages
-  socket.on("chat message", (msg) => {
-    io.emit("chat message", msg);
+  socket.on("createRoom", () => {
+    const roomNumber = generateRoomNumber();
+    socket.join(roomNumber);
+    socketToRoom[socket.id] = roomNumber;
+    io.to(roomNumber).emit("chat message", {
+      content: "User created and joined the room",
+      roomNumber: roomNumber,
+    });
+    io.to(socket.id).emit("roomCreated", roomNumber);
   });
 
-  // Handle disconnection
+  socket.on("joinRoom", (roomNumber) => {
+    const existingRoom = io.sockets.adapter.rooms.get(roomNumber);
+    if (existingRoom) {
+      socket.join(roomNumber);
+      socketToRoom[socket.id] = roomNumber;
+      io.to(roomNumber).emit("chat message", {
+        content: "User joined the room",
+        roomNumber: roomNumber,
+      });
+    } else {
+      io.to(socket.id).emit("chat message", {
+        content: "Room does not exist",
+      });
+    }
+  });
+
+  socket.on("chat message", (msg) => {
+    io.to(socketToRoom[socket.id]).emit("chat message", msg);
+  });
+
   socket.on("disconnect", () => {
     console.log("User disconnected");
   });
-});
-
-const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
 });
