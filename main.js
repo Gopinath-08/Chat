@@ -1,4 +1,4 @@
-const socket = io("http://localhost:3000" || "https://chat-gsm9.onrender.com");
+const socket = io("https://chat-gsm9.onrender.com");
 
 const form = document.querySelector("form");
 const m = document.getElementById("m");
