@@ -1,4 +1,4 @@
-# Private Chat Room
+# Anonymous Chat Web App
 
 Welcome to the Anonymous Chat Web App! This application allows users to create and engage in chat conversations without the need for signing in. It provides a platform for spontaneous and anonymous interactions, promoting a free-flowing exchange of ideas and conversations.
 
@@ -32,7 +32,7 @@ To get started with the Anonymous Chat Web App, follow these simple steps:
 
 ## Feedback and Contributions
 
-If you have any feedback or suggestions for improvement, please feel free to [create an issue](link-to-issues-page) on our GitHub repository. We welcome contributions and encourage you to submit pull requests to enhance the functionality and features of the application.
+If you have any feedback or suggestions for improvement, please feel free to [create an issue](https://github.com/Gopinath-08/Chat/issues) on our GitHub repository. We welcome contributions and encourage you to submit pull requests to enhance the functionality and features of the application.
 
 ## License
 
@@ -40,4 +40,4 @@ This project is licensed under the [GNU General Public License v3.0](LICENSE.md)
 
 ---
 
-**Note:** Please replace the placeholder text (e.g., `link-to-issues-page`, `LICENSE.md`) with actual links or details relevant to your project. Additionally, ensure that you include the necessary files, such as the license file (LICENSE.md), within your repository.
+**Note:** Please ensure that the provided issue link is correct and leads to your GitHub repository's issues page.
