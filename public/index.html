@@ -5,30 +5,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Private Chat Room</title>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
-  <script defer src="/main.js"></script>
   <link rel="stylesheet" type="text/css" href="/styles.css">
 </head>
 
 <body>
-  <div id="room-options" class="center">
-    <button id="create-room" class="button-primary">Create Room</button>
-    <button id="join-room" class="button-secondary">Join Room</button>
-  </div>
+  <div id="chat-container" class="center">
+    <div id="room-options" class="options-container">
+      <button id="create-room" class="button-primary">Create Room</button>
+      <button id="join-room" class="button-secondary">Join Room</button>
+    </div>
 
-  <div id="room-form" class="center" style="display: none;">
-    <label for="room-number">Enter Room Number:</label>
-    <input type="text" id="room-number" autocomplete="off" class="input-field" placeholder="Room No: ______">
-    <button id="join-room-button" class="button-primary">Join Room</button>
-  </div>
+    <div id="room-form" class="options-container" style="display: none;">
+      <label for="room-number">Enter Room Number:</label>
+      <input type="text" id="room-number" autocomplete="off" class="input-field" placeholder="Room No: ______">
+      <button id="join-room-button" class="button-primary">Join Room</button>
+      <!-- Add a new element for the error message -->
+      <div id="error-message" class="error-message"></div>
+    </div>
 
-  <div id="chat-room" class="center" style="display: none;">
-    <div id="room-info" class="info-box"></div>
-    <div id="messages" class="message-box"></div>
-    <form id="form" action="" class="message-form">
-      <input id="m" autocomplete="off" class="message-input" /><button class="button-primary">Send</button>
-    </form>
+    <div id="chat-room" style="display: none;">
+      <div id="header">
+        <button id="back-button" class="back-icon" style="display: none;">&#9665;</button>
+        <div id="room-info" class="info-box"></div>
+      </div>
+      <div id="messages" class="message-box"></div>
+      <form id="form" action="" class="message-form">
+        <input id="m" autocomplete="off" class="message-input" placeholder="Type your message..." />
+        <button class="button-primary">Send</button>
+      </form>
+    </div>
   </div>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
+  <script defer src="/main.js"></script>
 </body>
 
 </html>

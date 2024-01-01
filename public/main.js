@@ -11,6 +11,7 @@ const form = document.getElementById("form");
 const messageInput = document.getElementById("m");
 const joinRoomInput = document.getElementById("room-number");
 const joinRoomButtonSubmit = document.getElementById("join-room-button");
+const backButton = document.getElementById("back-button");
 
 createRoomButton.addEventListener("click", function () {
   socket.emit("createRoom");
@@ -28,7 +29,26 @@ joinRoomButtonSubmit.addEventListener("click", function () {
     roomInfo.innerHTML = `<p>Room Number: ${roomNumber}</p>`;
     roomForm.style.display = "none";
     chatRoom.style.display = "flex";
+
+    // Show the back button in the chat room
+    backButton.style.display = "block";
+
+    // Hide the room options buttons
+    createRoomButton.style.display = "none";
+    joinRoomButton.style.display = "none";
   }
+});
+
+backButton.addEventListener("click", function () {
+  // Show room options and hide the chat room
+  roomOptions.style.display = "flex";
+  chatRoom.style.display = "none";
+  // Hide the back button when going back
+  backButton.style.display = "none";
+
+  // Show the room options buttons
+  createRoomButton.style.display = "block";
+  joinRoomButton.style.display = "block";
 });
 
 form.addEventListener("submit", function (e) {
@@ -53,6 +73,9 @@ socket.on("chat message", function (msg) {
   const li = document.createElement("li");
   li.textContent = msg.content;
   messages.appendChild(li);
+
+  // Auto-scroll to the bottom of the chat messages
+  messages.scrollTop = messages.scrollHeight;
 });
 
 socket.on("roomCreated", function (roomNumber) {
@@ -60,4 +83,11 @@ socket.on("roomCreated", function (roomNumber) {
   roomInfo.innerHTML = `<p>Room Number: ${roomNumber}</p>`;
   roomForm.style.display = "none";
   chatRoom.style.display = "flex";
+
+  // Show the back button in the chat room
+  backButton.style.display = "block";
+
+  // Hide the room options buttons
+  createRoomButton.style.display = "none";
+  joinRoomButton.style.display = "none";
 });
