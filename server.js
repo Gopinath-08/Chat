@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
 });
 
 app.get('/download', (req, res) => {
-  res.sendFile(path.join(__dirname + "/download.html"));
+  res.sendFile(path.join(__dirname + "download.html"));
 });
 
 const PORT = process.env.PORT || 8800;
