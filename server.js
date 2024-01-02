@@ -1,6 +1,7 @@
 const express = require("express");
 const http = require("http");
 const app = express();
+const path = require("path");
 const server = http.createServer(app);
 
 const io = require("socket.io")(server, {
@@ -11,9 +12,14 @@ const io = require("socket.io")(server, {
 });
 
 app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
+});
+
+app.get('/download', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'download.html'));
 });
 
 const PORT = process.env.PORT || 8800;
