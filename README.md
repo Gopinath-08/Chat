@@ -14,7 +14,7 @@ Welcome to the Anonymous Chat Web App! This application allows users to create a
 
 - **Simple and Intuitive Interface:** The user interface is designed to be user-friendly and straightforward, making it easy for users to navigate and participate in conversations.
 
-## Getting Started
+## Getting Started 
 
 To get started with the Anonymous Chat Web App, follow these simple steps:
 
@@ -40,4 +40,4 @@ This project is licensed under the [GNU General Public License v3.0](https://git
 
 ---
 
-**Note:** Please ensure that the provided license link is correct and leads to your GitHub repository's license file.
+**Note:** Please ensure that the provided license link is correct and leads to your GitHub repository's license file.(😊)
