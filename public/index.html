@@ -5,10 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Private Chat Room</title>
-  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
+  <script defer src="main.js"></script>
+
 </head>
 
 <body>
+  <h1>Private Chat Room</h1>
   <div id="chat-container" class="center">
     <div id="room-options" class="options-container">
       <button id="create-room" class="button-primary">Create Room</button>
@@ -35,8 +39,6 @@
       </form>
     </div>
   </div>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
-  <script defer src="/main.js"></script>
 </body>
 
 </html>

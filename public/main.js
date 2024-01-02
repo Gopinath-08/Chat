@@ -15,6 +15,7 @@ const backButton = document.getElementById("back-button");
 
 createRoomButton.addEventListener("click", function () {
   socket.emit("createRoom");
+  roomOptions.style.display = "none";
 });
 
 joinRoomButton.addEventListener("click", function () {
@@ -34,8 +35,7 @@ joinRoomButtonSubmit.addEventListener("click", function () {
     backButton.style.display = "block";
 
     // Hide the room options buttons
-    createRoomButton.style.display = "none";
-    joinRoomButton.style.display = "none";
+    roomOptions.style.display = "none";
   }
 });
 
