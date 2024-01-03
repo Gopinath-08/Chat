@@ -177,6 +177,10 @@ li {
 :focus-visible {
   outline: none;
 }
+
+#download-link {
+  margin-top: 2rem;
+}
 /* Media Query for Mobile */
 @media only screen and (max-width: 600px) {
   #chat-container {
