@@ -40,4 +40,3 @@ This project is licensed under the [GNU General Public License v3.0](https://git
 
 ---
 
-**Note:** Please ensure that the provided license link is correct and leads to your GitHub repository's license file.(😊)
